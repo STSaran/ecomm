@@ -171,16 +171,118 @@
 @media (max-width: 1024px) {
     .admin-main {
         grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1.5rem;
     }
 }
 
 @media (max-width: 768px) {
-    .admin-main {
-        padding: 1rem;
-    }
-    
     .product-form-section,
     .products-list-section {
         padding: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.7rem;
+        font-size: 0.95rem;
+    }
+
+    .image-preview {
+        width: 100%;
+        max-width: 200px;
+        margin: 0.5rem auto;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .submit-btn,
+    .clear-btn,
+    .view-store-btn {
+        width: 100%;
+        padding: 1rem;
+        justify-content: center;
+    }
+
+    .products-table th,
+    .products-table td {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .products-table img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .action-buttons {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 0.8rem;
+        min-width: 44px;  /* Minimum touch target size */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.8rem;
+    }
+
+    .brand h1 {
+        font-size: 1.2rem;
+    }
+
+    .view-store-btn {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .products-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .products-table th,
+    .products-table td {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) {
+    .submit-btn:hover,
+    .clear-btn:hover,
+    .view-store-btn:hover,
+    .edit-btn:hover,
+    .delete-btn:hover {
+        transform: none;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px;  /* Prevent iOS zoom on focus */
     }
 } 
