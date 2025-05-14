@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoShop Admin Panel</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="brand">
+                <i class="fas fa-lock"></i>
+                <h1>Admin Panel</h1>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="window.location.href='index.html'" class="view-store-btn">
+                    <i class="fas fa-store"></i> View Store
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="admin-main">
+        <section class="product-form-section">
+            <h2>Add/Edit Product</h2>
+            <form id="productForm" class="product-form">
+                <input type="hidden" id="productId">
+                <div class="form-group">
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" required>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Price (₹):</label>
+                    <input type="number" id="productPrice" min="0" step="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory">Category:</label>
+                    <select id="productCategory" required>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Footwear">Footwear</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Accessories">Accessories</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Description:</label>
+                    <textarea id="productDescription" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="productImage">Image:</label>
+                    <input type="file" id="productImage" accept="image/*" required>
+                    <div id="imagePreview" class="image-preview"></div>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-save"></i> Save Product
+                    </button>
+                    <button type="button" class="clear-btn" onclick="clearForm()">
+                        <i class="fas fa-times"></i> Clear Form
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="products-list-section">
+            <h2>Products List</h2>
+            <div class="products-table-wrapper">
+                <table id="productsTable" class="products-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="js/db.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html> 
